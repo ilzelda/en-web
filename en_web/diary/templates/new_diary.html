@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+       <form action="{% url 'create' %}" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            
+            <!-- <div class="mb-3">
+                <label for="date" class="form-label">날짜</label>
+                <input type="date" class="form-control" id="date" name="date">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">내용</label>
+                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+            </div>-->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="submit">일기 추가하기</button>
+            </div> 
+       </form>
+    </div>
+    
+{% endblock %} 
+

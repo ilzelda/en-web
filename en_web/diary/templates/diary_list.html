@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>일기들이 나오는 페이지</h1>
+        <a href="{% url 'create' %}">일기 쓰기</a>
+
+        {% for diary in diaries %}
+            <h3>{{diary.date}}</h3>
+            <h4>{{diary.description}}</h4>
+            <a href="{% url 'update' diary.id %}">수정하기</a>
+        {% endfor %}
+    </div>
+    
+{% endblock %} 

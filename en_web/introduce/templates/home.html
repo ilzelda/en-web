@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>this is introduce page</h1>
+        
+        <form action="{% url 'createtodo' %}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">목표</label>
+                <textarea class="form-control" id="title" rows="3" name="title"></textarea>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="submit">목표 추가하기</button>
+            </div>
+           </form>
+    
+    </div>
+{% endblock %} 
+
+
