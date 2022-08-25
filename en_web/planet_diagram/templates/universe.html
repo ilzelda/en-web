@@ -2,6 +2,13 @@
 {% block content %}
     <div class="container">
         <h1>행성들이 나오는 페이지</h1>
+        {% for planet in planets %}
+        <h3><a href="{% url 'planetdetail' planet.id %}">{{planet.title}}</a></h3>
+            {% if planet.image %}
+                <h4><img src="{{planet.image.url}}" alt=""></h4>
+            {% endif %}
+        {% endfor %}
+
         <a href="{% url 'createplanet' %}">행성 추가</a>
     </div>
     

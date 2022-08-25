@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h2>planet detail</h2>
+         <h3>{{planet.title}}</h3>
+        {% if planet.image %}
+            <img src="{{planet.image.url}}" alt="">
+        {% endif %}
+        {% for comment in planet.comment_set.all %}
+            <p>{{ comment }}</p>
+        {% endfor %}
+        <form action="{% url 'createcomment' planet.id %}" method="POST">
+            {% csrf_token %}
+            {{ comment_form.as_table }}
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="submit">코멘트 추가</button>
+            </div> 
+        </form>
+    </div>
+{% endblock %} 

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="container">
-       <form action="{% url 'createplanet' %}" method="POST">
+       <form action="{% url 'createplanet' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 {{ form.as_table }}
